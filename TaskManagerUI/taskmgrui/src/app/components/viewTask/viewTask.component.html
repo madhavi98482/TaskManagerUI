@@ -1,0 +1,25 @@
+<div id="tasks">
+	<div class="row table-responsive">
+		<table class="table table-hover table-striped">
+			<tr class="bg-dark text-white">
+				<th>S.No</th>
+				<th>Task</th>
+				<th>Parent</th>
+				<th>Priority</th>
+				<th>Start</th>
+				<th>End</th>
+				<th></th>
+			</tr>
+			<tr *ngFor="let task of tasks; let i = index;">
+				<td>{{i+1}}</td>
+				<td>{{task.name}}</td>
+				<td>{{task.parentTask.parentTaskName}}</td>
+				<td>{{task.priority}}</td>
+				<td>{{task.startdate}}</td>
+				<td>{{task.enddate}}</td>
+				<td><a routerLink="/task/{{task.task_id}}"><button class="btn btn-info btn-sm"> Edit</button></a></td>
+				<td><button class="btn btn-danger btn-sm" (click)="deleteTask(task.task_id)">End Task</button></td>
+			</tr>
+		</table>
+	</div>
+</div>
